@@ -1,5 +1,5 @@
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	unsigned long	r;
 	int				i;

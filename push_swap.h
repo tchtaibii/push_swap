@@ -5,6 +5,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-int	ft_atoi(const char *str);
+int *stack_A;
+int *stack_B;
+
+int	ft_atoi(char *str);
+int	ft_dgts_check(char **str);
 
 #endif
