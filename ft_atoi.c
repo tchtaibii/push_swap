@@ -1,7 +1,7 @@
-
+#include "push_swap.h"
 int	ft_atoi(char *str)
 {
-	unsigned long	r;
+	long long	r;
 	int				i;
 	int				o;
 
@@ -20,6 +20,11 @@ int	ft_atoi(char *str)
 	{
 		r = r * 10 + (str[i] - '0');
 		i++;
+	}
+	if ((r * o) > 2147483647 || (r * o) < -2147483648)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	return (o * r);
 }

@@ -1,18 +1,24 @@
-int	ft_double_check()
+#include "push_swap.h"
+
+int	ft_double_check(int *table)
 {
 	int	i;
 	int	j;
 
-	while([i])
+	i = 0;
+	while(table[i])
 	{
-		j = 0;
-		while([j])
+		j = i + 1;
+		while(table[j])
 		{
+			if (table[j] == table[i])
+			{
+				printf("ERROR");
+				return (0);
+			}
 			j++;
-			if ()
-				return 0;
 		}
 		i++;
 	}
-	return 1;
+	return (1);
 }

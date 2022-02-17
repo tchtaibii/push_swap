@@ -14,6 +14,11 @@ int	ft_dgts_check(char **str)
 			{
 				if((str[i][j+1] >= 48 && str[i][j+1] <= 57))
 					j++;
+				if ((str[i][j+1] >= 48 && str[i][j+1] <= 57))
+				{
+					printf("ERROR");
+					return 0;
+				}
 			}
 			if (str[i][j] < '0' || str[i][j] > '9')
 			{
