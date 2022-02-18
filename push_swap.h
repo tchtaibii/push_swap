@@ -24,5 +24,10 @@ void    ft_sa(node *stack_A);
 void	ft_ss(node *stack_A, node *stack_B);
 void    ft_pb(node **stack_A, node **stack_B);
 void    ft_pa(node **stack_A, node **stack_B);
+void    ft_ra(node **stack_A);
+void    ft_rb(node **stack_B);
+void    ft_rr(node **stack_A, node **stack_B);
+void    ft_rra(node **stack_A);
+void    ft_rrr(node **stack_A, node **stack_B);
 
 #endif

@@ -24,10 +24,14 @@ int main(int ac, char **av)
 				if(!ft_double_check(stack_A))
 			return (0);
 		
-		ft_pb(&stack_A, &stack_B);
-		ft_pb(&stack_A, &stack_B);
-		ft_pa(&stack_A, &stack_B);
-		i = 0;
+		ft_rra(&stack_A);
+		ft_rra(&stack_A);
+		ft_pb(&stack_A,&stack_B);
+		ft_pb(&stack_A,&stack_B);
+		ft_rrr(&stack_A,&stack_B);
+		ft_rr(&stack_A,&stack_B);
+		ft_pa(&stack_A,&stack_B);
+		
 		printf("STACK_A\n");
 		while(stack_A)
 		{
@@ -35,11 +39,10 @@ int main(int ac, char **av)
 			stack_A = stack_A->next;
 		}
 		printf("STACK_B\n");
-		node *head = stack_B;
-		while(head)
+		while(stack_B)
 		{
-			printf("%d \n",head->data);
-			head = head->next;
+			printf("%d \n",stack_B->data);
+			stack_B = stack_B->next;
 		}
     }
     else
