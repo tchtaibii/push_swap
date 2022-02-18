@@ -1,0 +1,38 @@
+#include "push_swap.h"
+
+int    *ft_increase_a(int *stack.a)
+{
+    int i;
+    int *temp;
+
+    i = table_counter(stack.a);
+    temp = stack.a;
+    free(stack.a);
+    stack.a = malloc(sizeof(int) * (i));
+	i = 0;
+	while (temp[i + 1])
+	{
+		stack.a[i] = temp[i + 1];
+		i++;
+	}
+	stack.a[i] = '\0';
+	return(stack.a);
+}
+int    *ft_increase_b(int *stack.b)
+{
+    int i;
+    int *temp;
+
+    i = table_counter(stack.b);
+    temp = stack.b;
+    free(stack.b);
+    stack.b = malloc(sizeof(int) * (i));
+	i = 0;
+	while (temp[i + 1])
+	{
+		stack.b[i] = temp[i + 1];
+		i++;
+	}
+	stack.b[i] = '\0';
+	return (stack.b);
+}

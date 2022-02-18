@@ -3,38 +3,44 @@ int main(int ac, char **av)
 {
     int i;
     int j;
+	int c;
 
-    
+	node *stack_A;
+    node *stack_B;
+
+	stack_A = NULL;
+	stack_B = NULL;
 	c = ac;
     if (ac > 1)
     {
         if(!ft_dgts_check(av))
             return 0;
-        stack_A = malloc(sizeof(int) * ac);
 		i = 1;
         while(av[i])
         {
-            stack_A[i-1] = ft_atoi(av[i]);
+            addback(&stack_A, ft_atoi(av[i]));
             i++;
         }
-		stack_A[i-1] = '\0';
-		if(!ft_double_check(stack_A))
+				if(!ft_double_check(stack_A))
 			return (0);
-		// stack_B = malloc(2);
-		// stack_B[0] = 92;
-		// stack_A = ft_pa();
-		ft_pb();
+		
+		ft_pb(&stack_A, &stack_B);
+		ft_pb(&stack_A, &stack_B);
+		ft_pa(&stack_A, &stack_B);
 		i = 0;
-		while(stack_B[i])
+		printf("STACK_A\n");
+		while(stack_A)
 		{
-			printf("%d \n",stack_B[i++]);
+			printf("%d \n",stack_A->data);
+			stack_A = stack_A->next;
 		}
-		i = 0;
-		while(stack_A[i])
+		printf("STACK_B\n");
+		node *head = stack_B;
+		while(head)
 		{
-			printf("|%d| \n",stack_A[i++]);
+			printf("%d \n",head->data);
+			head = head->next;
 		}
-        
     }
     else
         printf("error");

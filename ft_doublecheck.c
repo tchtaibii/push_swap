@@ -1,24 +1,25 @@
 #include "push_swap.h"
 
-int	ft_double_check(int *table)
+int	ft_double_check(node *stack_A)
 {
-	int	i;
-	int	j;
+	node *tmp;
+	node *tmp2;
 
-	i = 0;
-	while(table[i])
+	tmp = stack_A;
+
+	while(tmp != NULL)
 	{
-		j = i + 1;
-		while(table[j])
+		tmp2 = tmp->next;
+		while(tmp2 != NULL)
 		{
-			if (table[j] == table[i])
+			if (tmp2->data == tmp->data)
 			{
 				printf("ERROR");
 				return (0);
 			}
-			j++;
+			tmp2 = tmp2->next;
 		}
-		i++;
+		tmp = tmp->next;
 	}
 	return (1);
 }
