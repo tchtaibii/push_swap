@@ -4,7 +4,12 @@ int	ft_atoi(char *str)
 	long long	r;
 	int				i;
 	int				o;
-
+	
+	if (!str[0])
+	{
+		printf("ERROR");
+		exit(1);
+	}
 	i = 0;
 	r = 0;
 	o = 1;

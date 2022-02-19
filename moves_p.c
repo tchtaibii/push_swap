@@ -11,6 +11,7 @@ void    ft_pb(node **stack_A, node **stack_B)
         (*stack_A) -> next = 0;
         free(*stack_A);
         *stack_A = tmp;
+        printf("pb\n");
     }
 }
 
@@ -25,5 +26,6 @@ void    ft_pa(node **stack_A, node **stack_B)
         (*stack_B) -> next = 0;
         free(*stack_B);
         *stack_B = tmp;
+        printf("pa\n");
     }
 }

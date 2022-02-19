@@ -12,6 +12,7 @@ void    ft_rra(node **stack_A)
     free(tmp->next);
     tmp->next = NULL;
     addfront(stack_A, value);
+    printf("rra\n");
 }
 
 void    ft_rrb(node **stack_B)
@@ -26,10 +27,12 @@ void    ft_rrb(node **stack_B)
     free(tmp->next);
     tmp->next = NULL;
     addfront(stack_B, value);
+    printf("rrb\n");
 }
 
 void ft_rrr(node **stack_A, node **stack_B)
 {
     ft_rra(stack_A);
     ft_rrb(stack_B);
+    printf("rrr\n");
 }
