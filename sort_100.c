@@ -46,9 +46,9 @@ void    ft_sort_100(node **stack_A, node **stack_B, int nb)
     ft_index_stack(stack_A, tab, nb);
 
     i = 0;
-    while ((nb + 1) > i)
-    {
-        printf("%d ",tab[i]);
-        i++;
-    }
+    // while ((nb + 1) > i)
+    // {
+    //     printf("%d ",tab[i]);
+    //     i++;
+    // }
 }

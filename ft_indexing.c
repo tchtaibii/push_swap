@@ -7,8 +7,9 @@ void    ft_index_stack(node **stack_A, int *tab, int nb)
 
     tmp = *stack_A;
     i = 0;
-    while (nb > i)
+    while ((nb + 1) > i)
     {
+        tmp = *stack_A;
         while (tmp)
         {
 
