@@ -1,57 +1,57 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-node    *createnode(int value)
+node	*createnode(int value)
 {
-    node    *head;
+	node	*head;
 
-    head = malloc(sizeof(node));
-    head->data = value;
-    head->next = NULL;
-    return head;
+	head = malloc(sizeof(node));
+	head->data = value;
+	head->next = NULL;
+	return head;
 }
 
 void addback(node **list, int value)
 {
-    node *tmp;
-    node *new;
+	node *tmp;
+	node *new;
 
-    new = createnode(value);
-    if (list == NULL)
-    {
-        *list = new;
-        list->next = NULL;
-    }
-    else
-    {
-        tmp = *list;
-        while (tmp->next != NULL)
-            tmp = tmp->next;
-        tmp->next = new;
-    }
+	new = createnode(value);
+	if (list == NULL)
+	{
+		*list = new;
+		list->next = NULL;
+	}
+	else
+	{
+		tmp = *list;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 }
 
 void addfront(node **list, int value)
 {
-    node *new;
+	node *new;
 
-    new = createnode(value);
-    new->next = *list;
-    *list = new;
+	new = createnode(value);
+	new->next = *list;
+	*list = new;
 }
 
 int main()
 {
-    node *list;
+	node *list;
 
-    list = createnode(6);
-    addback(&list, 12);
-    addback(&list, 18);
+	list = createnode(6);
+	addback(&list, 12);
+	addback(&list, 18);
 
-    while (list)
-    {
-        printf(" -> %d", list->data);
-        list = list->next;
-    }
-    
+	while (list)
+	{
+		printf(" -> %d", list->data);
+		list = list->next;
+	}
+	
 }

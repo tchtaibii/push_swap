@@ -33,6 +33,6 @@ int	ft_double_check(node *stack_A)
 		tmp = tmp->next;
 	}
 	if (ft_sort_deja(stack_A))
-		    return (0);
+			return (0);
 	return (1);
 }

@@ -1,9 +1,9 @@
 #include "push_swap.h"
 int table_counter(int *table)
 {
-    int i;
+	int i;
 
-    while (table[i])
-        i++;
-    return (i);
+	while (table[i])
+		i++;
+	return (i);
 }

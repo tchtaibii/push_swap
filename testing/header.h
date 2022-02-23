@@ -6,7 +6,7 @@
 
 typedef struct test
 {
-    int num;
+	int num;
 } test;
 
 #endif

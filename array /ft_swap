@@ -2,20 +2,20 @@
 
 int *ft_sa(int *stack.a)
 {
-    int tmp;
+	int tmp;
 
-    tmp = stack.a[0];
-    stack.a[0] = stack.a[1];
-    stack.a[1] = tmp;
-    return (stack.a);
+	tmp = stack.a[0];
+	stack.a[0] = stack.a[1];
+	stack.a[1] = tmp;
+	return (stack.a);
 }
 
 int *ft_sb(int *stack.b)
 {
-    int tmp;
+	int tmp;
 
-    tmp = stack.b[0];
-    stack.b[0] = stack.b[1];
-    stack.b[1] = tmp;
-    return (stack.b);
+	tmp = stack.b[0];
+	stack.b[0] = stack.b[1];
+	stack.b[1] = tmp;
+	return (stack.b);
 }

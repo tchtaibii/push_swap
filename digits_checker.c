@@ -12,9 +12,9 @@ int	ft_dgts_check(char **str)
 		{
 			if (str[i][j] == '-' || str[i][j] == '+')
 			{
-				if((str[i][j+1] >= 48 && str[i][j+1] <= 57))
-					j++;
 				if ((str[i][j+1] >= 48 && str[i][j+1] <= 57))
+					j++;
+				else if ((str[i][j+1] < 48 && str[i][j+1] < 57))
 				{
 					printf("ERROR");
 					return 0;
