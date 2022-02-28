@@ -1,52 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 22:46:14 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/28 22:49:30 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 
-
 typedef struct node
 {
-	int data;
-	int index;
-	struct node *next;
-	
-}   node;
+	int				data;
+	int				index;
+	struct t_node	*next;
+}	t_node;
 
-node	*createnode(int value, int index);
-node	*ft_stock_stA(int ac, char **av, node *stack_A);
-void	ft_push_back_to_a(node **a, node **b, int k);
-void	addback(node **list, int value, int index);
-void	addfront(node **list, int value, int index);
-void	ft_sa(node **stack_A);
-void	ft_sb(node **stack_B);
-void	ft_ss(node **stack_A, node **stack_B);
-void	ft_pb(node **stack_A, node **stack_B);
-void	ft_pa(node **stack_A, node **stack_B);
-void	ft_ra(node **stack_A);
-void	ft_rb(node **stack_B);
-void	ft_rr(node **stack_A, node **stack_B);
-void	ft_rra(node **stack_A);
-void	ft_rrb(node **stack_B);
-void	ft_rrr(node **stack_A, node **stack_B);
-void	ft_sort_2(node **stack_A);
-void	ft_sort_3(node **stack_A);
-void	ft_sort_4(node **stack_A, node **stack_B);
-void	ft_sort_5(node **stack_A, node **stack_B);
-void	ft_index_stack(node **stack_A, int *tab, int nb);
-void	ft_sort_and_index(node **stack_A);
+t_node	*createt_node(int value, int index);
+t_node	*ft_stock_st_a(int ac, char **av, t_node *stack_a);
+void	ft_push_back_to_a(t_node **a, t_node **b, int k);
+void	addback(t_node **list, int value, int index);
+void	addfront(t_node **list, int value, int index);
+void	ft_sa(t_node **stack_a);
+void	ft_sb(t_node **stack_b);
+void	ft_ss(t_node **stack_a, t_node **stack_b);
+void	ft_pb(t_node **stack_a, t_node **stack_b);
+void	ft_pa(t_node **stack_a, t_node **stack_b);
+void	ft_ra(t_node **stack_a);
+void	ft_rb(t_node **stack_b);
+void	ft_rr(t_node **stack_a, t_node **stack_b);
+void	ft_rra(t_node **stack_a);
+void	ft_rrb(t_node **stack_b);
+void	ft_rrr(t_node **stack_a, t_node **stack_b);
+void	ft_sort_2(t_node **stack_a);
+void	ft_sort_3(t_node **stack_a);
+void	ft_sort_4(t_node **stack_a, t_node **stack_b);
+void	ft_sort_5(t_node **stack_a, t_node **stack_b);
+void	ft_index_stack(t_node **stack_a, int *tab, int nb);
+void	ft_sort_and_index(t_node **stack_a);
 void	ft_sort_table(int *tab, int nb);
-void	sort_100(node **stack_A, node **stack_B);
-int		ft_find_min(node *stack_A);
+void	sort_100(t_node **stack_a, t_node **stack_b);
+int		ft_find_min(t_node *stack_a);
 int		table_counter(int *table);
 int		ft_atoi(char *str);
 int		ft_dgts_check(char **str);
-int		ft_double_check(node *stack_A);
-int		ft_sort_deja(node *stack_A);
-int		ft_find_index_min(node *stack_A, int value);
-int		ft_min_of_stack(node *stack_A);
-int 	ft_linkedlen(node *stack);
-int		ft_search_min_of_range(node *stack_A, int min, int max);
+int		ft_double_check(t_node *stack_a);
+int		ft_sort_deja(t_node *stack_a);
+int		ft_find_index_min(t_node *stack_a, int value);
+int		ft_min_of_stack(t_node *stack_a);
+int		ft_linkedlen(t_node *stack);
+int		ft_search_min_of_range(t_node *stack_a, int min, int max);
 
 #endif

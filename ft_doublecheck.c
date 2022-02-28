@@ -1,10 +1,23 @@
-#include "push_swap.h"
-int ft_sort_deja(node *stack_A)
-{
-	node *tmp;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_doublecheck.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 21:52:33 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/28 22:47:18 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	tmp = stack_A;
-	while(tmp->next != NULL)
+#include "push_swap.h"
+
+int	ft_sort_deja(t_node *stack_a)
+{
+	t_node	*tmp;
+
+	tmp = stack_a;
+	while (tmp->next != NULL)
 	{
 		if (tmp->data > tmp->next->data)
 			return (0);
@@ -12,16 +25,17 @@ int ft_sort_deja(node *stack_A)
 	}
 	return (1);
 }
-int	ft_double_check(node *stack_A)
-{
-	node *tmp;
-	node *tmp2;
 
-	tmp = stack_A;
-	while(tmp != NULL)
+int	ft_double_check(t_node *stack_a)
+{
+	t_node	*tmp;
+	t_node	*tmp2;
+
+	tmp = stack_a;
+	while (tmp != NULL)
 	{
 		tmp2 = tmp->next;
-		while(tmp2 != NULL)
+		while (tmp2 != NULL)
 		{
 			if (tmp2->data == tmp->data)
 			{
@@ -32,7 +46,7 @@ int	ft_double_check(node *stack_A)
 		}
 		tmp = tmp->next;
 	}
-	if (ft_sort_deja(stack_A))
-			return (0);
+	if (ft_sort_deja(stack_a))
+		return (0);
 	return (1);
 }

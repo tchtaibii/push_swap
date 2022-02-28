@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 22:33:29 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/28 22:47:18 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-node	*createnode(int value, int index)
+t_node	*createt_node(int value, int index)
 {
-	node	*head;
+	t_node	*head;
 
-	head = malloc(sizeof(node));
+	head = malloc(sizeof(t_node));
 	head->data = value;
 	head->index = index;
 	head->next = NULL;
-	return head;
+	return (head);
 }
 
-void addback(node **list, int value, int index)
+void	addback(t_node **list, int value, int index)
 {
-	node *tmp;
-	node *new;
+	t_node	*tmp;
+	t_node	*new;
 
-	new = createnode(value, index);
+	new = createt_node(value, index);
 	if (*list == NULL)
 		*list = new;
 	else
@@ -28,26 +40,11 @@ void addback(node **list, int value, int index)
 	}
 }
 
-void addfront(node **list, int value, int index)
+void	addfront(t_node **list, int value, int index)
 {
-	node *new;
+	t_node	*new;
 
-	new = createnode(value, index);
+	new = createt_node(value, index);
 	new->next = *list;
 	*list = new;
 }
-
-// int main()
-// {
-//	 node *list;
-
-//	 list = NULL;
-//	 addback(&list, 12);
-//	 addback(&list, 18);
-
-//	 while (list)
-//	 {
-//		 write(" -> %d", list->data);
-//		 list = list->next;
-//	 }
-// }

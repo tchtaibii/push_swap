@@ -1,15 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 22:24:19 by tchtaibi          #+#    #+#             */
+/*   Updated: 2022/02/28 22:29:05 by tchtaibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+void	ft_exit(void)
+{
+	write(1, "ERROR", 5);
+	exit(1);
+}
+
 int	ft_atoi(char *str)
 {
-	long long	r;
+	long long		r;
 	int				i;
 	int				o;
-	
+
 	if (!str[0])
-	{
-		write(1, "ERROR", 5);
-		exit(1);
-	}
+		ft_exit();
 	i = 0;
 	r = 0;
 	o = 1;
@@ -27,9 +43,6 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	if ((r * o) > 2147483647 || (r * o) < -2147483648)
-	{
-		write(1, "ERROR", 5);
-		exit(1);
-	}
+		ft_exit();
 	return (o * r);
 }
