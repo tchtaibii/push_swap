@@ -9,7 +9,7 @@ int ft_find_index_min(node *stack_A, int value)
 	index = 0;
 	while (tmp)
 	{
-		if (tmp->data == value)
+		if (tmp->index == value)
 			return (index);
 		index++;
 		tmp = tmp->next;
@@ -22,12 +22,12 @@ int	ft_find_min(node *stack_A)
 	int i;
 	node *tmp;
 
-	i = stack_A->data;
+	i = stack_A->index;
 	tmp = stack_A;
 	while (tmp)
 	{
-		if (i > tmp->data)
-			i = tmp->data;
+		if (i > tmp->index)
+			i = tmp->index;
 		tmp = tmp->next;
 	}
 	i = ft_find_index_min(stack_A, i);

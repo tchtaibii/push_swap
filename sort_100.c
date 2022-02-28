@@ -1,142 +1,177 @@
 #include "push_swap.h"
-
-int  ft_search_pos(node *stack_A, int index)
+int	ft_search_min_of_range(node *stack_A, int min, int max)
 {
 	int i;
 
 	i = 0;
-	while (stack_A != NULL)
+	while (stack_A)
 	{
-		if (stack_A->index == index)
-			return (i);
+		if (stack_A->index >= min && stack_A->index <= max)
+			return i;
 		i++;
 		stack_A = stack_A->next;
 	}
-	return (0);
+	return 0;
+	
 }
 
 int ft_linkedlen(node *stack)
 {
-	int i;
+	int	count;
 
-	i = 0;
-	if (!stack)
-		return 0;
-	while (stack != NULL)
+	count = 0;
+	while (stack)
 	{
-		i++;
+		count++;
 		stack = stack->next;
 	}
-	return (i);
+	return (count);
 }
 
-int	*ft_sort_table(int *tab, int nb)
+void	ft_sort_table(int *tab, int size)
 {
-	int i;
-	int j;
-	int temp;
+	int    i;
+    int    j;
+    int    swap;
 
-	i = 0;
-	while (i < (nb - 1))
-	{
-		j = 0;
-		while ( j < (nb - i))
-		{
-			if (tab[j] > tab[j + 1])
-			{
-				temp = tab[j + 1];
-				tab[j + 1] = tab[j];
-				tab[j] = temp;
-			}
-			++j;
-		}
-		i++;
-	}
-	return (tab);
+    i = 0;
+    while (i < size)
+    {
+        j = i + 1;
+        while (j < size)
+        {
+            if (tab[i] > tab[j])
+            {
+                swap = tab[i];
+                tab[i] = tab[j];
+                tab[j] = swap;
+            }
+            j++;
+        }
+        i++;
+    }
 }
 
-void	ft_sorting(node **stack_A, node **stack_B, int nb)
+int search_place_index(int index, node *stack_b)
 {
-	int min;
-	int max;
-	int med;
-	int p;
-	int size;
-	int j = 0;
-	node *tmp;
-	int i = 0;
-	
-	size =  ft_linkedlen(*stack_A);
-	tmp = *stack_A;
-	while (size > 5)
-	{
-		min = ft_min_of_stack(*stack_A);
-		size =  ft_linkedlen(*stack_A) - 1;
-		p = ((size - 5) / 3) + 1;
-		max = (min + p) - 1;
-		med = (min + max) / 2;
-		while ((*stack_A)->index != min)
-		{
-			if (med >= size / 2)
-				med = size / 2;
-			if (ft_search_pos(*stack_A, min) <= size / 2)
-			{
-				if ((*stack_A)->index >= min && (*stack_A)->index <= max)
-				{
-					ft_pb(stack_A, stack_B);
-				}
-				else
-					ft_ra(stack_A);
-			}
-			if (ft_search_pos(*stack_A, min) > size / 2)
-			{
-				if ((*stack_A)->index >= min && (*stack_A)->index <= max)
-				{
-					ft_pb(stack_A, stack_B);
-				}
-				else
-					ft_rra(stack_A);
-			}
-		}
-		if ((*stack_A)->index >= min && (*stack_A)->index <= max)
-				ft_pb(stack_A, stack_B);
-	}
-	ft_sort_5(stack_A, stack_B);
-	size = ft_linkedlen(*stack_B) - 1;
-	//tmp = *stack_B;
-	while (size > 0)
-	{
-		size = ft_linkedlen(*stack_B) - 1;
-		if ((*stack_A)->index - 1 == (*stack_B)->index)
-			ft_pa(stack_A, stack_B);
-		else
-		{
-			while ((*stack_A)->index - 1 != (*stack_B)->index)
-			{
-				if ((*stack_A)->index - 2 == (*stack_B)->index)
-				{
-					ft_pa(stack_A, stack_B);
-					ft_ra(stack_A);
-					i++;
-				}
-				else
-					ft_rb(stack_B);
-			}
-			ft_pa(stack_A, stack_B);
-			while (i > 0)
-			{
-				ft_rra(stack_A);
-				i--;
-			}
-			i = 0;
-		}
-	}
-	//*stack_B = tmp;
-	// while ((*stack_B)->next != NULL)
-	// {
-	//	 ft_pa(stack_A, stack_B);
-	//	 *stack_B = (*stack_B)->next;
-	// }
-	// ft_pa(stack_A, stack_B);
-	 
+    node *temp;
+    int i;
+
+    i = 0;
+    temp = stack_b;
+    while (temp)
+    {
+        if (temp->index == index)
+            break;
+        temp = temp->next;
+        i++;
+    }
+    return (i); 
+}
+void push_index_b(node **stack_a, node **stack_b)
+{
+    int min;
+    int push;
+    int max;
+    int med;
+    int size_stack;
+    int b;
+
+    size_stack = ft_linkedlen(*stack_a);
+    while (size_stack > 5)
+    {
+        push = (((size_stack - 5) / 3) + 1);
+        if (size_stack >= 100)
+            push = (((size_stack - 5) / 4) + 1);
+        min = ft_min_of_stack(*stack_a);
+        max = ((min + push) - 1);
+        med = ((min + max) / 2);
+        while (push > 0)
+        {
+            b = ft_search_min_of_range(*stack_a, min, max);
+            if (b > size_stack / 2)
+            {
+                while (b > size_stack / 2)
+                {
+                    if ((*stack_a)->index >= min && (*stack_a)->index <= max)
+                    {
+                        ft_pb(stack_a,stack_b);
+                        if ((*stack_b)->index < med)
+                        {
+                            ft_rb(stack_b);
+                        }
+                        push--;
+                    }
+                    else
+                        ft_rra(stack_a);
+                    b--;
+                    size_stack = ft_linkedlen(*stack_a);
+                }
+            }
+            else if (b <= size_stack / 2)
+            {
+                while (b <= size_stack / 2)
+                {
+                    if ((*stack_a)->index >= min && (*stack_a)->index <= max)
+                    {
+                        ft_pb(stack_a,stack_b);
+                        if ((*stack_b)->index < med)
+                        {
+                            ft_rb(stack_b);
+                        }
+                        push--;
+                    }
+                    else
+                        ft_ra(stack_a);
+                    b++;
+                    size_stack = ft_linkedlen(*stack_a);
+                }
+            }
+         }
+        size_stack = ft_linkedlen(*stack_a);
+    }
+}
+void    sort_100(node **stack_a, node **stack_b)
+{
+    int i;
+    int size_stack;
+
+    push_index_b(stack_a,stack_b);
+    ft_sort_5(stack_a, stack_b);
+    size_stack = ft_linkedlen(*stack_b);
+    while (size_stack != 1)
+    {
+        if ((*stack_a)->index - 1 == (*stack_b)->index)
+        {
+            ft_pa(stack_a,stack_b);
+        }
+        while ((*stack_a)->index - 1 != (*stack_b)->index)
+        {
+            i = search_place_index((*stack_a)->index - 1,*stack_b);
+            if (i > size_stack / 2)
+            {
+                while (i > size_stack / 2)
+                {
+                    if ((*stack_a)->index -1 == (*stack_b)->index)
+                        break;
+                    ft_rrb(stack_b);
+                    i--;
+                    size_stack = ft_linkedlen(*stack_b);
+                }
+            }
+            else if (i <= size_stack / 2)
+            {
+                while (i <= size_stack / 2)
+                {
+                    if ((*stack_a)->index -1 == (*stack_b)->index)
+                        break;
+                    ft_rb(stack_b);
+                    i++;
+                    size_stack = ft_linkedlen(*stack_b);
+                }
+            }
+         }
+        size_stack = ft_linkedlen(*stack_b);
+    }
+	ft_pa(stack_a, stack_b);
 }

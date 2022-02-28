@@ -47,7 +47,7 @@ void addfront(node **list, int value, int index)
 
 //	 while (list)
 //	 {
-//		 printf(" -> %d", list->data);
+//		 write(" -> %d", list->data);
 //		 list = list->next;
 //	 }
 // }

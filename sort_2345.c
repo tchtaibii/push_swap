@@ -11,9 +11,9 @@ void	ft_sort_3(node **stack_A)
 	int n2;
 	int n3;
 
-	n1 = (*stack_A)->data;
-	n2 = (*stack_A)->next->data;
-	n3 = (*stack_A)->next->next->data;
+	n1 = (*stack_A)->index;
+	n2 = (*stack_A)->next->index;
+	n3 = (*stack_A)->next->next->index;
 	if (n1 > n2 && n1 > n3 && n3 < n2)
 	{
 		ft_sa(stack_A);
@@ -67,7 +67,7 @@ void	ft_sort_4(node **stack_A, node **stack_B)
 	}
 }
 
-void	ft_sort_5(node **stack_A, node **stack_B)
+void	 ft_sort_5(node **stack_A, node **stack_B)
 {
 	int value;
 

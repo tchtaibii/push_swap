@@ -7,7 +7,7 @@ void	ft_ra(node **stack_A)
 	tmp = (*stack_A)->next;
 	free(*stack_A);
 	*stack_A = tmp;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	ft_rb(node **stack_B)
@@ -18,12 +18,12 @@ void	ft_rb(node **stack_B)
 	tmp = (*stack_B)->next;
 	free(*stack_B);
 	*stack_B = tmp;
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	ft_rr(node **stack_A, node **stack_B)
 {
 	ft_ra(stack_A);
 	ft_rb(stack_B);
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }

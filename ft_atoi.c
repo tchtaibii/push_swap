@@ -7,7 +7,7 @@ int	ft_atoi(char *str)
 	
 	if (!str[0])
 	{
-		printf("ERROR");
+		write(1, "ERROR", 5);
 		exit(1);
 	}
 	i = 0;
@@ -28,7 +28,7 @@ int	ft_atoi(char *str)
 	}
 	if ((r * o) > 2147483647 || (r * o) < -2147483648)
 	{
-		write(2, "Error\n", 6);
+		write(1, "ERROR", 5);
 		exit(1);
 	}
 	return (o * r);

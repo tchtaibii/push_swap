@@ -3,7 +3,9 @@
 node	*ft_stock_stA(int ac,char **av, node *stack_A)
 {
 	int i;
+
 	i = 1;
+	(void)ac;
 	while(av[i])
 	{
 		addback(&stack_A, ft_atoi(av[i]), 0);
@@ -24,6 +26,5 @@ int ft_min_of_stack(node *stack_A)
 			min = tmp->index;
 		tmp = tmp->next;
 	}
-	//printf("%d=====\n", min);
 	return (min);
 }

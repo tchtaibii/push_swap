@@ -7,7 +7,7 @@ void	ft_index_stack(node **stack_A, int *tab, int nb)
 
 	tmp = *stack_A;
 	i = 0;
-	while ((nb + 1) > i)
+	while (i < nb)
 	{
 		tmp = *stack_A;
 		while (tmp)
@@ -22,5 +22,4 @@ void	ft_index_stack(node **stack_A, int *tab, int nb)
 		}
 		i++;
 	}
-	
 }

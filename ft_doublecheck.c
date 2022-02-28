@@ -25,7 +25,7 @@ int	ft_double_check(node *stack_A)
 		{
 			if (tmp2->data == tmp->data)
 			{
-				printf("ERROR");
+				write(1, "ERROR", 5);
 				return (0);
 			}
 			tmp2 = tmp2->next;
