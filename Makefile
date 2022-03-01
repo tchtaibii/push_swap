@@ -3,7 +3,7 @@ FLAGS = -Wall -Wextra -Werror
 SRC = main.c ft_sort_and_index.c digits_checker.c \
 	linked_list.c finder.c moves_p.c sort_100.c \
 	ft_atoi.c moves_r.c sort_2345.c ft_doublecheck.c moves_rr.c \
-	ft_indexing.c moves_s.c stock.c
+	ft_indexing.c moves_s.c stock.c sort_5_norm.c sort_4_norm.c some_tools.c
 
 all : $(NAME)
 
