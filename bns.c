@@ -59,7 +59,7 @@ int	main(int ac, char **av)
 		if (!ft_dgts_check(av))
 			return (0);
 		stack_a = ft_stock_st_a(ac, av, stack_a);
-		if (!ft_double_check(stack_a))
+		if (!ft_double_check_b(stack_a))
 			return (0);
 		str = get_next_line(0);
 		while (str)

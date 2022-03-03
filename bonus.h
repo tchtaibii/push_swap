@@ -21,6 +21,7 @@ char	*get_next_line(int fd);
 int		ft_strlen(char *str);
 int		check_new_line(char *str);
 int		ft_strncmp(char *s1, char *s2);
+int     ft_double_check_b(t_node *stack_a);
 void	ft_sa_b(t_node **stack_a);
 void	ft_sb_b(t_node **stack_b);
 void	ft_ss_b(t_node **stack_a, t_node **stack_b);
