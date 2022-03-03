@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 22:46:14 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/03/01 03:38:22 by tchtaibi         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   push_swap.h										:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tchtaibi <tchtaibi@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/02/28 22:46:14 by tchtaibi		  #+#	#+#			 */
+/*   Updated: 2022/03/02 01:13:31 by tchtaibi		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
@@ -56,6 +56,7 @@ void	ft_sort_5(t_node **stack_a, t_node **stack_b);
 void	ft_index_stack(t_node **stack_a, int *tab, int nb);
 void	ft_sort_and_index(t_node **stack_a);
 void	ft_sort_table(int *tab, int nb);
+void	ft_exit(void);
 void	sort_100(t_node **stack_a, t_node **stack_b);
 void	ft_sort_5_v1(t_node **stack_a, t_node **stack_b);
 void	ft_sort_5_v2(t_node **stack_a, t_node **stack_b);

@@ -1,22 +1,20 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_100.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 03:16:07 by tchtaibi          #+#    #+#             */
-/*   Updated: 2022/03/01 03:34:29 by tchtaibi         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   sort_100.c										 :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tchtaibi <tchtaibi@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/03/01 03:16:07 by tchtaibi		  #+#	#+#			 */
+/*   Updated: 2022/03/01 23:18:02 by tchtaibi		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void push_index_b(t_node **stack_a, t_node **stack_b)
+void	push_index_b(t_node **stack_a, t_node **stack_b, int b)
 {
 	t_va	va;
-	int b;
 
 	va.size_stack = ft_linkedlen(*stack_a);
 	while (va.size_stack > 5)
@@ -34,13 +32,12 @@ void push_index_b(t_node **stack_a, t_node **stack_b)
 			{
 				while (b > va.size_stack / 2)
 				{
-					if ((*stack_a)->index >= va.min && (*stack_a)->index <= va.max)
+					if ((*stack_a)->index >= va.min && \
+						(*stack_a)->index <= va.max)
 					{
-						ft_pb(stack_a,stack_b);
+						ft_pb(stack_a, stack_b);
 						if ((*stack_b)->index < va.med)
-						{
 							ft_rb(stack_b);
-						}
 						va.push--;
 					}
 					else
@@ -53,13 +50,12 @@ void push_index_b(t_node **stack_a, t_node **stack_b)
 			{
 				while (b <= va.size_stack / 2)
 				{
-					if ((*stack_a)->index >= va.min && (*stack_a)->index <= va.max)
+					if ((*stack_a)->index >= va.min && \
+						(*stack_a)->index <= va.max)
 					{
-						ft_pb(stack_a,stack_b);
+						ft_pb(stack_a, stack_b);
 						if ((*stack_b)->index < va.med)
-						{
 							ft_rb(stack_b);
-						}
 						va.push--;
 					}
 					else
@@ -68,24 +64,23 @@ void push_index_b(t_node **stack_a, t_node **stack_b)
 					va.size_stack = ft_linkedlen(*stack_a);
 				}
 			}
-		 }
+		}
 		va.size_stack = ft_linkedlen(*stack_a);
 	}
 }
+
 void	sort_100(t_node **stack_a, t_node **stack_b)
 {
-	int i;
-	int s_stack;
+	int	i;
+	int	s_stack;
 
-	push_index_b(stack_a,stack_b);
+	push_index_b(stack_a, stack_b, 0);
 	ft_sort_5(stack_a, stack_b);
 	s_stack = ft_linkedlen(*stack_b);
 	while (s_stack != 1)
 	{
 		if ((*stack_a)->index - 1 == (*stack_b)->index)
-		{
-			ft_pa(stack_a,stack_b);
-		}
+			ft_pa(stack_a, stack_b);
 		while ((*stack_a)->index - 1 != (*stack_b)->index)
 		{
 			i = search_place_index((*stack_a)->index - 1,*stack_b);
@@ -94,7 +89,7 @@ void	sort_100(t_node **stack_a, t_node **stack_b)
 				while (i > s_stack / 2)
 				{
 					if ((*stack_a)->index -1 == (*stack_b)->index)
-						break;
+						break ;
 					ft_rrb(stack_b);
 					i--;
 					s_stack = ft_linkedlen(*stack_b);
@@ -105,7 +100,7 @@ void	sort_100(t_node **stack_a, t_node **stack_b)
 				while (i <= s_stack / 2)
 				{
 					if ((*stack_a)->index -1 == (*stack_b)->index)
-						break;
+						break ;
 					ft_rb(stack_b);
 					i++;
 					s_stack = ft_linkedlen(*stack_b);
