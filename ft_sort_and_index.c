@@ -31,4 +31,5 @@ void	ft_sort_and_index(t_node **stack_a)
 	}
 	ft_sort_table(tab, nb);
 	ft_index_stack(stack_a, tab, nb);
+	free(tab);
 }
