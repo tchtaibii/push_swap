@@ -14,7 +14,7 @@
 
 void	ft_exit(void)
 {
-	write(1, "ERROR", 5);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

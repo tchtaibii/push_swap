@@ -24,69 +24,66 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_substr(char *str, int start, int len)
-{
-	int		i;
-	int		j;
-	char	*new;
-
-	i = 0;
-	j = 0;
-	if (!str)
-		return (0);
-	if (start >= ft_strlen(str))
-		len = 0;
-	while (i < len && str[i])
-		i++;
-	new = malloc(i + 1);
-	if (!new)
-		return (0);
-	while (j < i)
-		new[j++] = str[start++];
-	new[j] = '\0';
-	return (new);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		i;
-	int		j;
-	char	*new;
-
-	i = 0;
-	j = 0;
-	if (!s1 && !s2)
-		return (0);
-	if (!s1)
-	{
-		s1 = malloc(1);
-		s1[0] = 0;
-	}
-	new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!new)
-		return (0);
-	while (s1[i])
-		new[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		new[j++] = s2[i++];
-	new[j] = '\0';
-	free(s1);
-	return (new);
-}
-
-int	check_new_line(char *str)
+int	check_line(char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (!s)
 		return (0);
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == '\n')
+		if (s[i] == '\n')
 			return (1);
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*new;
+	int		i;
+	int		j;
+	int		a;
+	int		b;
+
+	a = ft_strlen(s1);
+	b = ft_strlen(s2);
+	new = malloc ((a + b + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (i < a)
+		new[i++] = s1[j++];
+	j = 0;
+	while (j < b)
+		new[i++] = s2[j++];
+	new[i] = '\0';
+	free (s1);
+	return (new);
+}
+
+char	*ft_substr(char *s, int start, int len)
+{
+	char	*x;
+	int		i;
+	int		j;
+
+	if (!s)
+		return (0);
+	if (start >= ft_strlen(s))
+		len = 0;
+	i = 0;
+	j = 0;
+	while (i < len && s[i])
+		i++;
+	x = malloc((i + 1) * sizeof(char));
+	if (!x)
+		return (NULL);
+	while (j < i)
+		x[j++] = s[start++];
+	x[i] = '\0';
+	return (x);
 }

@@ -39,6 +39,6 @@ clean_bonus :
 	@rm -f checker
 	@tput setaf 1; echo "CLEAN COMPLET"
 
-fclean : clean
+fclean : clean clean_bonus
 
 re: fclean all

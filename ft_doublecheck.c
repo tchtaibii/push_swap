@@ -17,43 +17,24 @@ int	ft_sort_deja(t_node *stack_a)
 	t_node	*tmp;
 	t_node	*tmp2;
 
-	tmp = stack_a;
-	tmp2 = stack_a->next;
-	while (tmp2 != NULL)
+	if (stack_a)
 	{
 		tmp = stack_a;
-		while (tmp != tmp2)
-		{
-			if (tmp->data > tmp2->data)
-				return (0);
-			tmp = tmp->next;
-		}
-		tmp2 = tmp2->next;
-	}
-	return (1);
-}
-
-int	ft_double_check_b(t_node *stack_a)
-{
-	t_node	*tmp;
-	t_node	*tmp2;
-
-	tmp = stack_a;
-	while (tmp != NULL)
-	{
-		tmp2 = tmp->next;
+		tmp2 = stack_a->next;
 		while (tmp2 != NULL)
 		{
-			if (tmp2->data == tmp->data)
+			tmp = stack_a;
+			while (tmp != tmp2)
 			{
-				write(1, "ERROR", 5);
-				return (0);
+				if (tmp->data > tmp2->data)
+					return (0);
+				tmp = tmp->next;
 			}
 			tmp2 = tmp2->next;
 		}
-		tmp = tmp->next;
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_double_check(t_node *stack_a)
@@ -69,14 +50,12 @@ int	ft_double_check(t_node *stack_a)
 		{
 			if (tmp2->data == tmp->data)
 			{
-				write(1, "ERROR", 5);
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
 	}
-	if (ft_sort_deja(stack_a))
-		return (0);
 	return (1);
 }

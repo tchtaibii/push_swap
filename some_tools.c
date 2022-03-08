@@ -31,13 +31,17 @@ int	ft_linkedlen(t_node *stack)
 {
 	int	count;
 
-	count = 0;
-	while (stack)
+	if (stack)
 	{
-		count++;
-		stack = stack->next;
+		count = 0;
+		while (stack)
+		{
+			count++;
+			stack = stack->next;
+		}
+		return (count);
 	}
-	return (count);
+	return (0);
 }
 
 void	ft_sort_table(int *tab, int size)

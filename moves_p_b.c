@@ -18,9 +18,9 @@ void	ft_pb_b(t_node **stack_a, t_node **stack_b)
 
 	if (ft_linkedlen(*stack_a))
 	{
-		addfront(stack_b, (*stack_a)->data, (*stack_a)->index);
+		addfront(stack_b, (*stack_a)->data, 0);
 		tmp = (*stack_a)->next;
-		(*stack_a)->next = 0;
+		(*stack_a)-> next = 0;
 		free(*stack_a);
 		*stack_a = tmp;
 	}
@@ -32,7 +32,7 @@ void	ft_pa_b(t_node **stack_a, t_node **stack_b)
 
 	if (ft_linkedlen(*stack_b))
 	{
-		addfront(stack_a, (*stack_b)->data, (*stack_b)->index);
+		addfront(stack_a, (*stack_b)->data, 0);
 		tmp = (*stack_b)->next;
 		(*stack_b)-> next = 0;
 		free(*stack_b);

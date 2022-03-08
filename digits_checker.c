@@ -22,13 +22,13 @@ int	ft_dgts_check2(char **str, int i, int j)
 				j++;
 			else if ((str[i][j + 1] < 48 && str[i][j + 1] < 57))
 			{
-				write(1, "ERROR", 5);
+				write(2, "Error\n", 6);
 				return (0);
 			}
 		}
 		if (str[i][j] < '0' || str[i][j] > '9')
 		{
-			write(1, "ERROR", 5);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		j++;
