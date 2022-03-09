@@ -20,6 +20,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 int		ft_strlen(char *str);
 int		check_line(char *s);
+int		ft_double_check_b(t_node *stack_a);
 int		check_new_line(char *str);
 int		ft_strncmp(char *s1, char *s2);
 void	ft_sa_b(t_node **stack_a);
