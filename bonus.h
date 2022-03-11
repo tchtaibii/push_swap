@@ -18,7 +18,6 @@
 char	*ft_substr(char *s, int start, int len);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
-int		ft_strlen(char *str);
 int		check_line(char *s);
 int		ft_double_check_b(t_node *stack_a);
 int		check_new_line(char *str);

@@ -34,7 +34,8 @@ typedef struct variables
 }	t_va;
 
 t_node	*createt_node(int value, int index);
-t_node	*ft_stock_st_a(int ac, char **av, t_node *stack_a);
+t_node	*ft_stock_st_a(char **av, t_node *stack_a, int i);
+char	**ft_split(char *s, char c);
 void	ft_push_back_to_a(t_node **a, t_node **b, int k);
 void	addback(t_node **list, int value, int index);
 void	addfront(t_node **list, int value, int index);
@@ -76,5 +77,6 @@ int		ft_min_of_stack(t_node *stack_a);
 int		ft_linkedlen(t_node *stack);
 int		ft_search_min_of_range(t_node *stack_a, int min, int max);
 int		search_place_index(int index, t_node *stack_b);
+int		ft_strlen(char *str);
 
 #endif

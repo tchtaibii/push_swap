@@ -16,7 +16,7 @@ int	ft_dgts_check2(char **str, int i, int j)
 {
 	while (str[i][j])
 	{
-		if (str[i][j + 1] == '-')
+		if (str[i][j + 1] == '-' || str[i][j + 1] == '+')
 			ft_exit();
 		if (str[i][j] == '-' || str[i][j] == '+')
 		{

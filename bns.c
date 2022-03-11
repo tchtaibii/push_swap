@@ -12,6 +12,31 @@
 
 #include "bonus.h"
 
+t_node	*split_args(char **av, int ac, char **str, t_node *stack_a)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	(void)ac;
+	while(av[i])
+	{
+		str = ft_split(av[i], ' ');
+		if (!ft_dgts_check(str))
+			return (0);
+		stack_a = ft_stock_st_a(str, stack_a, 0);
+		j = 0;
+		while (str[j])
+		{
+			free(str[j]);
+			j++;
+		}
+		free(str);
+		i++;
+	}
+	return (stack_a);
+}
+
 void	main2(t_node **stack_a, t_node **stack_b, char *str)
 {
 	if (!ft_strncmp(str, "pa\n"))
@@ -53,14 +78,14 @@ int	main(int ac, char **av)
 	t_node	*stack_a;
 	t_node	*stack_b;
 	char	*str;
+	char	**s;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	s = NULL;
 	if (ac > 1)
 	{
-		if (!ft_dgts_check(av))
-			return (0);
-		stack_a = ft_stock_st_a(ac, av, stack_a);
+		stack_a = split_args(av, ac, s, stack_a);
 		if (!ft_double_check_b(stack_a))
 			return (0);
 		str = get_next_line(0);

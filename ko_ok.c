@@ -14,12 +14,12 @@
 
 void	ft_ko(void)
 {
-	write(1, "KO", 2);
+	write(1, "KO\n", 3);
 	exit(1);
 }
 
 void	ft_ok(void)
 {
-	write(1, "OK", 2);
+	write(1, "OK\n", 3);
 	exit(1);
 }

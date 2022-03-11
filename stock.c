@@ -12,12 +12,8 @@
 
 #include "push_swap.h"
 
-t_node	*ft_stock_st_a(int ac, char **av, t_node *stack_a)
+t_node	*ft_stock_st_a(char **av, t_node *stack_a, int i)
 {
-	int	i;
-
-	i = 1;
-	(void)ac;
 	while (av[i])
 	{
 		addback(&stack_a, ft_atoi(av[i]), 0);
