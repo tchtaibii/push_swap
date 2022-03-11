@@ -19,7 +19,7 @@ t_node	*split_args(char **av, int ac, char **str, t_node *stack_a)
 
 	i = 1;
 	(void)ac;
-	while(av[i])
+	while (av[i])
 	{
 		str = ft_split(av[i], ' ');
 		if (!ft_dgts_check(str))
@@ -66,11 +66,7 @@ int	main(int ac, char **av)
 			ft_sort_4(&stack_a, &stack_b);
 		else if (ft_linkedlen(stack_a) == 5)
 			ft_sort_5(&stack_a, &stack_b);
-		
-		
 		else if (ft_linkedlen(stack_a) > 5)
-		{
 			sort_100(&stack_a, &stack_b);
-		}
 	}
 }
