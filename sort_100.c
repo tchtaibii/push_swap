@@ -122,9 +122,7 @@ void	sort_100(t_node **stack_a, t_node **stack_b)
 		if ((*stack_a)->index - 1 == (*stack_b)->index)
 			ft_pa(stack_a, stack_b);
 		while ((*stack_a)->index - 1 != (*stack_b)->index)
-		{
 			sort_100_2(stack_a, stack_b, s_stack);
-		}
 		s_stack = ft_linkedlen(*stack_b);
 	}
 	ft_pa(stack_a, stack_b);
