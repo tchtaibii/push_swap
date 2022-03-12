@@ -36,7 +36,7 @@ int	ft_dgts_check(char **str)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
 		if (!ft_dgts_check2(str, i, 0))
