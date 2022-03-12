@@ -21,6 +21,8 @@ t_node	*split_args(char **av, int ac, char **str, t_node *stack_a)
 	(void)ac;
 	while (av[i])
 	{
+		if (av[i][0] == ' ')
+			ft_exit();
 		str = ft_split(av[i], ' ');
 		if (!ft_dgts_check(str))
 			return (0);
